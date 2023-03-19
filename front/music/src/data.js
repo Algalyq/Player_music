@@ -1,5 +1,26 @@
 import { v4 as uuidv4 } from "uuid";
-function chillHop() {
+
+import { BASE_URL } from "./config/baseurl.js";
+import axios from "axios";
+import { useEffect,useState } from 'react';
+function ChillHop() {
+
+
+    const [datas, setData] = useState({data: []})
+	
+	useEffect(() =>{
+		axios.get(
+			`${BASE_URL}/music/`,).then(response => {
+			const data = response.data;
+			setData(data);
+			// console.log(data); // log the data to check if it's being fetched correctly
+		  }).catch(error => {
+			console.error(error)
+		  });
+   
+	
+}, [])
+console.log(datas)
 	return [
 		{
 			name: "Beaver Creek",
@@ -65,4 +86,4 @@ function chillHop() {
 	];
 }
 
-export default chillHop;
+export default ChillHop;

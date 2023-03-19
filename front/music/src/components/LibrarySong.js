@@ -7,7 +7,8 @@ const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying, songs, setSong
 		await setCurrentSong(song);
 		const curSong = song;
 		const songList = songs;
-
+		
+	
 		const newSongs = songList.map((song) => {
 			if (song.id === curSong.id) {
 				return {
@@ -28,6 +29,8 @@ const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying, songs, setSong
 			audioRef.current.play();
 		}
 	};
+
+
 
 	return (
 		<LibrarySongContainer onClick={songSelectHandler} isActive={song.active}>
