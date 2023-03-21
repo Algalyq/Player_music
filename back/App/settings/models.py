@@ -10,3 +10,8 @@ class Music(models.Model):
     audio = models.FileField(upload_to="music")
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     active = models.BooleanField(default=False)
+
+
+class Color(models.Model):
+    music = models.ForeignKey('Music', on_delete=models.CASCADE)
+    color = models.CharField(max_length=255)

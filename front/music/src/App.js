@@ -17,6 +17,7 @@ const App = () => {
 
 	// State
 	const [songs, setSongs] = useState(data());
+	console.log(songs)
 	const [currentSong, setCurrentSong] = useState(songs[0]);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [libraryStatus, setLibraryStatus] = useState(false);

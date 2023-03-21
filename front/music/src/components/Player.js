@@ -152,8 +152,8 @@ const Track = styled.div`
 	position: relative;
 	border-radius: 1rem;
 	overflow: hidden;
-	background: linear-gradient(to right, ${(p) => p.currentSong.color[0]}, ${(p) => p.currentSong.color[1]});
-`;
+	`;
+	// background: linear-gradient(to right, ${(p) => p.currentSong.color[0]}, ${(p) => p.currentSong.color[1]});
 
 const AnimateTrack = styled.div`
 	background: rgb(204, 204, 204);

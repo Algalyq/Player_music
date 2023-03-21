@@ -37,7 +37,7 @@ const LibrarySong = ({ song, setCurrentSong, audioRef, isPlaying, songs, setSong
 			<Img src={song.cover} alt={song.name}></Img>
 			<LibrarySongDescription>
 				<H1>{song.name}</H1>
-				<H2>{song.artist}</H2>
+				<H2>{song.artist.psevdo_name}</H2>
 			</LibrarySongDescription>
 		</LibrarySongContainer>
 	);
@@ -48,7 +48,6 @@ const LibrarySongContainer = styled.div`
 	width: 100%;
 	display: flex;
 	transition: all 0.3s ease;
-	background-color: ${(p) => (p.isActive ? "pink" : "white")};
 	&:hover {
 		background-color: lightblue;
 		transition: all 0.3s ease;
@@ -57,7 +56,8 @@ const LibrarySongContainer = styled.div`
 		background-color: pink;
 	}
 `;
-
+//background-color: ${(p) => (p.isActive ? "pink" : "white")};
+	
 const LibrarySongDescription = styled.div`
 	width: 100%;
 	height: 100%;

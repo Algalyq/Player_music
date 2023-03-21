@@ -12,3 +12,7 @@ class MusicAdmin(admin.ModelAdmin):
 @admin.register(Artist)
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ('id','psevdo_name')
+
+@admin.register(Color)
+class ColorAdmin(admin.ModelAdmin):
+    list_display = ('id','music','color')
