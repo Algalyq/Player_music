@@ -7,8 +7,19 @@ function ChillHop() {
 
 
     const [datas, setData] = useState({data: []})
-	
-
+	const API = `${BASE_URL}/music/`;
+	const fetchPost = () => {
+	  fetch(API)
+		.then((res) => res.json())
+		.then((res) => {
+		  console.log(res)
+		  setData(res)
+		})
+	}
+	useEffect(() => {
+	  fetchPost()
+	}, [])
+	return [fetchPost()]
 // 	useEffect(() =>{
 // 		axios.get(
 // 			`${BASE_URL}/music/`,).then(response => {
@@ -20,32 +31,50 @@ function ChillHop() {
 // 		  });
 // }, [])
 
+// useEffect(() => {
+// 	fetch(`${BASE_URL}/music/`)
+// 	  .then((response) => {
+// 		if (!response.ok) {
+// 		  throw new Error(
+// 			`This is an HTTP error: The status is ${response.status}`
+// 		  );
+// 		}
+// 		return response.data;
+// 	  })
+// 	  .then((actualData) => (setData(actualData) ))
+// 	  .catch((err) => {
+// 		console.log(err.message);
+// 	  });
+//   }, []);
 
-useEffect(() => {
-const fetchData = async () => {
-	const { data } = await axios.get(`${BASE_URL}/music/`)
-	setData(data)
-  }
-  fetchData()
-},[])
+		// return [
+		// 	{
+		// 		name: "student",
+		// 		cover: "http://localhost:8000/media/images/12255-2021-kia-k5.png",
+		// 		artist: {
+		// 			psevdo_name: "Polna"
+		// 		},
+		// 		audio: "http://localhost:8000/media/music/10075.mp3",
+		// 		// color: ["#205950", "#2ab3bf"],
+		// 		id: 1,
+		// 		active: true
+		// 	},
+		// 	{
+		// 		name: "student",
+		// 		cover: "http://localhost:8000/media/images/12255-2021-kia-k5.png",
+		// 		artist: {
+		// 			psevdo_name: "Polna"
+		// 		},
+		// 		audio: "http://localhost:8000/media/music/10075.mp3",
+		// 		// color: ["#205950", "#2ab3bf"],
+		// 		id: 2,
+		// 		active: false
+		// 	},
+		// 	];
 
-  console.log(JSON.stringify(datas))
+		}
 
-return [
-		{
-			name: "student",
-			cover: "http://localhost:8000/media/images/12255-2021-kia-k5.png",
-			artist: {
-				psevdo_name: "Polna"
-			},
-			audio: "http://localhost:8000/media/music/10075.mp3",
-			// color: ["#205950", "#2ab3bf"],
-			id: 1,
-			active: true
-		},
-		
-		];
-
+		export default ChillHop;
 
 
 
@@ -139,6 +168,3 @@ return [
 	// 	},
 	// 	//ADD MORE HERE
 	// ];
-}
-
-export default ChillHop;

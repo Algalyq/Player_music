@@ -7,5 +7,6 @@ from .views import *
 music_list = MusicsView.as_view({'get':'list','post':'create'})
 
 urlpatterns = [
-    path('',music_list,name="all_musics")
+    path('',music_list,name="all_musics"),
+    path('fav/',FavoriteView.as_view(),name="fav")
 ]

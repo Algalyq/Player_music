@@ -1,7 +1,4 @@
 from django.contrib import admin
-
-# Register your models here.
-
 from .models import *
 
 
@@ -16,3 +13,7 @@ class ArtistAdmin(admin.ModelAdmin):
 @admin.register(Color)
 class ColorAdmin(admin.ModelAdmin):
     list_display = ('id','music','color')
+
+@admin.register(FavoriteMusic)
+class FavoriteAdmin(admin.ModelAdmin):
+    list_display = ('user','music')

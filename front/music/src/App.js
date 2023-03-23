@@ -14,9 +14,7 @@ import data from "./data";
 const App = () => {
 	// Ref
 	const audioRef = useRef(null);
-
-	// State
-	const [songs, setSongs] = useState(data());
+	const [songs, setSongs] = useState(data())
 	console.log(songs)
 	const [currentSong, setCurrentSong] = useState(songs[0]);
 	const [isPlaying, setIsPlaying] = useState(false);
