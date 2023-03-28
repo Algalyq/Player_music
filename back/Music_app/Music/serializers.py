@@ -33,3 +33,22 @@ class FavoriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = FavoriteMusic
         fields = ['user','music']
+
+
+class PlaylistSerializer(serializers.ModelSerializer):
+    # music = MusicSerializer()
+    # pltrack = PlaylistTrackSerializer()
+    class Meta:
+        model = Playlist
+        fields = ['user_id','playlist_id','name']
+        # exclude = []
+
+class PlaylistTrackSerializer(serializers.ModelSerializer):
+    music_id = MusicSerializer()
+    playlist_id = PlaylistSerializer()
+    class Meta: 
+        model = Playlist_Track
+        fields = ['playlist_id','music_id']
+
+    
+

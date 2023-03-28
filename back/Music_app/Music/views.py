@@ -16,9 +16,14 @@ class SearchingViewMusic(generics.ListCreateAPIView):
     queryset = Music.objects.all()
     serializer_class = MusicSerializer
 
-
 class FavoriteView(APIView):
     def get(self,request,format=None):
         fav = FavoriteMusic.objects.all()
         serializer = FavoriteSerializer(fav,many=True)
+        return Response(serializer.data)
+
+class PlaylistView(APIView):
+    def get(self,request,format=None):
+        queryset = Playlist_Track.objects.all()
+        serializer = PlaylistTrackSerializer(queryset,many=True)
         return Response(serializer.data)

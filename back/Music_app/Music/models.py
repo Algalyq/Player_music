@@ -15,6 +15,12 @@ class FavoriteMusic(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,db_index=True)
     music = models.ForeignKey('Music', on_delete=models.CASCADE)
 
-class Color(models.Model):
-    music = models.ForeignKey('Music', on_delete=models.CASCADE)
-    color = models.CharField(max_length=255)
+class Playlist(models.Model):
+    playlist_id = models.AutoField(primary_key=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, null=False)
+
+class Playlist_Track(models.Model):
+    playlist_id = models.ForeignKey(Playlist, on_delete=models.CASCADE)
+    music_id = models.ForeignKey(Music, on_delete=models.CASCADE)
+

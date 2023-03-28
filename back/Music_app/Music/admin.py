@@ -10,10 +10,14 @@ class MusicAdmin(admin.ModelAdmin):
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ('id','psevdo_name')
 
-@admin.register(Color)
-class ColorAdmin(admin.ModelAdmin):
-    list_display = ('id','music','color')
-
 @admin.register(FavoriteMusic)
 class FavoriteAdmin(admin.ModelAdmin):
     list_display = ('user','music')
+
+@admin.register(Playlist)
+class PlaylistAdmin(admin.ModelAdmin):
+    list_display = ('user_id','playlist_id')
+
+@admin.register(Playlist_Track)
+class Playlist_trackAdmin(admin.ModelAdmin):
+    list_display = ('playlist_id','music_id')
