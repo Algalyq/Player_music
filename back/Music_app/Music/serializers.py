@@ -50,5 +50,8 @@ class PlaylistTrackSerializer(serializers.ModelSerializer):
         model = Playlist_Track
         fields = ['playlist_id','music_id']
 
-    
+class Playlist_TrackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Playlist_Track
+        fields = ('__all__')
 

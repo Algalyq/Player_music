@@ -8,7 +8,7 @@ from rest_framework import generics
 
 class MusicsView(viewsets.ModelViewSet):
     queryset = Music.objects.all()
-    serializer_class = MusicSerializer
+    serializer_class = MusicSerializer(queryset,many=True)
 
 class SearchingViewMusic(generics.ListCreateAPIView):
     search_fields = ['name','artist__psevdo_name']
@@ -23,7 +23,15 @@ class FavoriteView(APIView):
         return Response(serializer.data)
 
 class PlaylistView(APIView):
-    def get(self,request,format=None):
-        queryset = Playlist_Track.objects.all()
+
+    def get(self,request,pk,format=None):
+        queryset = Playlist_Track.objects.filter(playlist_id=pk)
         serializer = PlaylistTrackSerializer(queryset,many=True)
         return Response(serializer.data)
+    
+    def post(self,request,pk,format=None):
+        track = request.data.get('track')
+        serializer = Playlist_TrackSerializer(data=track)
+        if serializer.is_valid(raise_exception=True):
+            track_saved = serializer.save()
+        return Response({"status":"success"})
