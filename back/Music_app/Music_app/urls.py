@@ -7,7 +7,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('music/', include('Music.urls')),
+    # pathe('music/', include('Music.urls')),
     path('user/', include('Auth.urls')),
 
 ]
