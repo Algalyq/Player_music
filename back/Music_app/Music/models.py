@@ -43,11 +43,3 @@ class Playlist_Tracks(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['playlist_id', 'track_id'], name='unique_track_playlist'),
         ]
-# CREATE TABLE Playlist_Tracks (
-#   Playlist_ID INT,
-#   Track_ID INT,
-#   `Order` INT,
-#   PRIMARY KEY (Playlist_ID, Track_ID),
-#   FOREIGN KEY (Playlist_ID) REFERENCES Playlists(Playlist_ID),
-#   FOREIGN KEY (Track_ID) REFERENCES Tracks(Track_ID)
-# );
