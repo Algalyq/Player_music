@@ -20,3 +20,8 @@ class TracksAdmin(admin.ModelAdmin):
 @admin.register(Playlists)
 class PlaylistsAdmin(admin.ModelAdmin):
     list_display = ('playlist_id','user_id','name')
+
+
+@admin.register(Playlist_Tracks)
+class PlaylistTracksAdmin(admin.ModelAdmin):
+    list_display = ('playlist_id','track_id')
