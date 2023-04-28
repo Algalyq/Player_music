@@ -47,8 +47,18 @@ class SingleAlbumsView(RetrieveUpdateAPIView):
 class TracksView(APIView):
 
     def get(self,request):
-        ...
+        query = Tracks.objects.all()
+        serializer = TracksSerializer(query,many=True)
+        return Response(serializer.data)    
     
     def post(self,request):
-        ...
+        serializer = TracksSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
+        
+class SingleTrackView(RetrieveUpdateAPIView):
+    queryset = Tracks.objects.all()
+    serializer_class = TracksSerializer
